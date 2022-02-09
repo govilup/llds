@@ -1,6 +1,7 @@
 package com.govil;
 
 import com.govil.services.command.RegisterUserCommand;
+import com.govil.services.command.SettleUpGroupCommand;
 import com.govil.services.command.UpdateProfileCommand;
 import com.govil.services.command.registry.CommandRegistry;
 import com.govil.services.command.registry.CommandRegistryImpl;
@@ -21,6 +22,9 @@ public class SplitwiseApplication implements CommandLineRunner {
 	UpdateProfileCommand updateProfileCommand;
 
 	@Autowired
+	private SettleUpGroupCommand settleUpGroupCommand;
+
+	@Autowired
 	CommandRegistry commandRegistry;
 
 	public static void main(String[] args) {
@@ -31,6 +35,7 @@ public class SplitwiseApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		commandRegistry.registerCommand(registerUserCommand);
 		commandRegistry.registerCommand(updateProfileCommand);
+		commandRegistry.registerCommand(settleUpGroupCommand);
 
 		String input = "u1 UpdateProfile robinchwan";
 		commandRegistry.executeCommand(input);

@@ -4,4 +4,5 @@ public interface CommandKeywords {
 
     String RegisterUserCommand = "Register";
     String UpdateProfileCommand = "UpdateProfile";
+    String SettleUpCommand = "SettleUp";
 }
